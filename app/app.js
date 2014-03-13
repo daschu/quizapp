@@ -8,7 +8,7 @@ Ext.application({
                 {
                     title: 'Start',
                     iconCls: 'home',
-                    html: 'Welcome'
+                    html: 'Datenschutz'
                 }
             ]
         });
