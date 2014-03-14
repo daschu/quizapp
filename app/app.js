@@ -18,7 +18,7 @@ Ext.application({
                     html: [
                         '<h1>Willkommen zum Datenschutz-Quiz</h1>',
                         "<p>Wir wuenschen dir viel Erfolg!</p>",
-                        '<h2>Start hier</h2>'
+                        '<h2>Start hier1</h2>'
                     ].join(""),
                     ui:'confirm', text:'Start' 
                           
