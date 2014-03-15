@@ -24,7 +24,26 @@ Ext.application({
                           
    
                 },
+                //This is the carousel
+ 				{
+ 					xtype:'Ext.Carousel', 
  
+    				items: [
+       					 {
+            				html : 'Item 1',
+            				style: 'background-color: #5E99CC'
+        				},
+        				{
+            				html : 'Item 2',
+            				style: 'background-color: #759E60'
+        					},
+        					{
+            				html : 'Item 3',
+            				style: 'background-color: #cccccc'
+        					}
+    					]
+},
+
                 // This is the recent blogs page. It uses a tree store to load its data from blog.json.
                 {
                     xtype: 'nestedlist',
