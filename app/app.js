@@ -5,92 +5,80 @@ Ext.application({
         // The whole app UI lives in this tab panel
         Ext.Viewport.add({
             xtype: 'tabpanel',
-            fullscreen: true,
+       		fullscreen: 'yes',
             tabBarPosition: 'bottom',
-		
+            ui:'light',
+		 
             items: [
                 // This is the home page, just some simple HTML
                 {
                     title: 'Home',
                     iconCls: 'home',
                     cls: 'home',
+                  style: 'background-color:#c1d82f',
+                    styleHtmlContent: true, 
+                    items: [
+                    {
+                    	html: [
+                        '<div class="container"><h1>Willkommen zum Datenschutz-Quiz</h1>',
+                        "<p>Wir wuenschen dir viel Erfolg!</p></div>"
                     
-                    html: [
-                        '<h1>Willkommen zum Datenschutz-Quiz</h1>',
-                        "<p>Wir wuenschen dir viel Erfolg!</p>",
-                        '<h2>Start hier1</h2>'
-                    ].join(""),
-                    ui:'confirm', text:'Start' 
-                          
+                    	].join("")
+                    
+                      },
+                      
+                      {
+                      	
+                            xtype: 'button',
+                            text: 'Login',
+                            ui: 'confirm-round'
+                           
+                      }
+                      ]    
    
                 },
-                //This is the carousel
- 				{
- 					xtype:'Ext.Carousel', 
- 
-    				items: [
-       					 {
-            				html : 'Item 1',
-            				style: 'background-color: #5E99CC'
-        				},
-        				{
-            				html : 'Item 2',
-            				style: 'background-color: #759E60'
-        					},
-        					{
-            				html : 'Item 3',
-            				style: 'background-color: #cccccc'
-        					}
-    					]
-},
+               
 
                 // This is the recent blogs page. It uses a tree store to load its data from blog.json.
                 {
-                    xtype: 'nestedlist',
-                    title: 'Blog',
+                    xtype: 'carousel',
+                    title: 'Infos',
                     iconCls: 'star',
-                    cls: 'blog',
+                    cls: 'carousel',
                     displayField: 'title',
-
-                    store: {
-                        type: 'tree',
-
-                        fields: ['title', 'link', 'author', 'contentSnippet', 'content', {
-                            name: 'leaf',
-                            defaultValue: true
-                        }],
-
-                        root: {
-                            leaf: false
-                        },
-
-                        proxy: {
-                            type: 'jsonp',
-                            url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.feedburner.com/SenchaBlog',
-                            reader: {
-                                type: 'json',
-                                rootProperty: 'responseData.feed.entries'
-                            }
-                        }
-                    },
-
-                    detailCard: {
-                        xtype: 'panel',
-                        scrollable: true,
-                        styleHtmlContent: true
-                    },
-
-                    listeners: {
-                        itemtap: function(nestedList, list, index, element, post) {
-                            this.getDetailCard().setHtml(post.get('content'));
-                        }
-                    }
-                },
+					style: 'background-color:#c1d82f',
+					
+                   items: [
+        {
+           
+            style: 'background-color: #5E99CC',
+         
+            xtype: 'image',
+            src: 'http://cdn.sencha.io/img/home/home_swiss-army-knife.png'
+			
+			
+        },
+        {
+            
+            style: 'background-color: #759E60',
+            xtype: 'image',
+            src: 'http://cdn.sencha.io/img/home/home_devices.png'
+			
+        },
+        {
+            style: 'background-color: #ffcc33',
+            xtype: 'image',
+            src: 'http://cdn.sencha.io/img/home/home_html5-buildings.png'
+			
+        }
+    ]
+},
+                      
 
                 // This is the contact page, which features a form and a button. The button submits the form.
                 {
                     xtype: 'formpanel',
-                    title: 'Contact Us',
+                    title: 'Kontakt',
                     iconCls: 'user',
                     url: 'contact.php',
                     layout: 'vbox',
@@ -98,31 +86,31 @@ Ext.application({
                     items: [
                         {
                             xtype: 'fieldset',
-                            title: 'Contact Us',
-                            instructions: 'Email address is optional',
+                            title: 'Ihre Anfrage',
+                            
                             height: 285,
                             items: [
                                 {
                                     xtype: 'textfield',
                                     label: 'Name',
-                                    name: 'name'
+                                    name: 'Name'
                                 },
                                 {
                                     xtype: 'emailfield',
                                     label: 'Email',
-                                    name: 'email'
+                                    name: 'Email'
                                 },
                                 {
                                     xtype: 'textareafield',
                                     label: 'Message',
-                                    name: 'message',
+                                    name: 'Nachricht',
                                     height: 90
                                 }
                             ]
                         },
                         {
                             xtype: 'button',
-                            text: 'Send',
+                            text: 'Senden',
                             ui: 'confirm',
 
                             // The handler is called when the button is tapped
