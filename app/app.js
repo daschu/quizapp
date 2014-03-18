@@ -20,7 +20,7 @@ Ext.application({
                     items: [
                     {
                     	html: [
-                        '<div class="container"><h1>Willkommen zum Datenschutz-Quiz</h1>',
+                        '<div class="container"><h1>Willkommen</h1>',
                         "<p>Wir wuenschen dir viel Erfolg!</p></div>"
                     
                     	].join("")
