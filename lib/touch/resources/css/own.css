@@ -3,3 +3,8 @@
 	margin auto;
 	text-align:center; 
 }
+h1 {
+	hyphens: auto;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+}
